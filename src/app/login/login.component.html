@@ -1,0 +1,25 @@
+<form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="Email" ngModel required name="email" #email="ngModel" [pattern]="emailPattern" placeholder="name@example.com">
+    <div *ngIf="email.touched && !email.valid">
+      <small class="text-danger" *ngIf="email.errors?.['required']">
+        this field is required
+      </small>
+      <small class="text-danger" *ngIf="email.errors?.['pattern']">
+        Email not valid
+      </small>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"> Password</label>
+    <input type="Password" class="form-control" id="Password" ngModel required name="password" #password="ngModel" placeholder="Password">
+    <div *ngIf="password.touched && !password.valid">
+      <small class="text-danger" *ngIf="password.errors?.['required']">
+        this field is required
+      </small>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+</form>

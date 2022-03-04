@@ -1,0 +1,42 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{Product.title}}</mat-card-title>
+    <mat-card-subtitle>{{Product.category}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="Product.image" class="card-img-top" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{Product.description}}
+    </p>
+    <p>
+      {{Product.price |price}}
+    </p>
+    <p  [ngStyle]="{'color': Product.rating.count != 0 ? 'green' : 'red' }">
+      {{Product.rating.count|count}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="navigateToProductDetails()">Go to details</button>
+    <button mat-button>ADD TO CART</button>
+  </mat-card-actions>
+</mat-card>
+
+
+
+
+
+
+<!-- <div class="card mb-5 mt-3 h-100 w-100 text-center" (click)="navigateToProductDetails()">
+  <h6 class="card-subtitle  text-muted">{{Product.category}}</h6>
+  <h6 class="card-title">{{Product.title}}</h6>
+  <img [src]="Product.image" class="card-img-top">
+  <div class="card-body text-center">
+    <p class="card-text">{{Product.description}}</p>
+    <h5 class="card-text">{{Product.price |price}}</h5>
+    <h5  class="card-text" [ngStyle]="{'color': Product.rating.count != 0 ? 'green' : 'red' }">{{Product.rating.count|count}}</h5>
+    <button class="btn btn-primary mt-auto">ADD TO CART</button>
+    <!-- <a  class="btn btn-primary mt-auto" (click)="navigateToProductDetails()">ADD TO CART</a> -->
+  <!-- </div>
+</div> --> -->
+
